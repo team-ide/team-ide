@@ -16,8 +16,6 @@ jobs:
 
       - name: Checkout TeamIDE code
         run: |
-          mkdir teamide
-          cd teamide
           git clone https://github.com/team-ide/teamide
       
 
