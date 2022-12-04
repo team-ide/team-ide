@@ -1,0 +1,34 @@
+name: release
+on:
+  push:
+    # tags: # 当我们提交代码为tag 是以'v'开头的时候才会触发自动部署到服务端 如 git push tag v0.1.0
+    #   - 'v*'
+    branches:
+      - main
+    #   - dev
+jobs:
+  buildStatic:
+    runs-on: ubuntu-latest
+    steps:
+      # 下载源码
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Checkout TeamIDE code
+        run: |
+          mkdir teamide
+          cd teamide
+          git clone https://github.com/team-ide/teamide
+      
+
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: "^1.19"
+
+      # 打包构建
+      - name: Build
+        run: |
+          cd teamide
+          go mod tidy
+          go build .
