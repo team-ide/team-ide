@@ -7,7 +7,7 @@ on:
       - main
     #   - dev
 jobs:
-  buildStatic:
+  Build:
     runs-on: ubuntu-latest
     steps:
       # 下载源码
