@@ -13,7 +13,7 @@ jobs:
       # 下载源码
       - uses: actions/checkout@v3
         with:
-          repository: team-ide/teamide-pro
+          repository: teamide-pro
 
       - run: |
           ls -l
